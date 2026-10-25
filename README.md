@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Personal Expense Tracker 💰
 About the Project
 
@@ -70,3 +71,6 @@ GitHub: https://github.com/patilrutuja0621
 License
 
 This project is intended for educational and portfolio purposes.
+=======
+# my-vscode-project
+>>>>>>> ec0f1a74d0035550048fc2d0d29c5700a47a2473
