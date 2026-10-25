@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track expenses and manage your personal budget.">
+  <title>PennyWise | Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">PennyWise<span>.</span></a>
+    <span class="tagline">Your money, in focus.</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">PERSONAL FINANCE</p>
+        <h1>Expense Tracker</h1>
+        <p class="muted">Understand your spending. Make smarter decisions.</p>
+      </div>
+      <span class="today" id="today"></span>
+    </section>
+
+    <section class="summary" aria-label="Expense summary">
+      <article class="summary-card">
+        <p>Total Expenses</p>
+        <h2 id="total">₹0.00</h2>
+        <span>All recorded transactions</span>
+      </article>
+      <article class="summary-card">
+        <p>This Month</p>
+        <h2 id="monthly">₹0.00</h2>
+        <span>Spending this month</span>
+      </article>
+      <article class="summary-card">
+        <p>Transactions</p>
+        <h2 id="count">0</h2>
+        <span>Expenses recorded</span>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Add an expense</h2>
+          <p class="muted">Record where your money goes.</p>
+        </div>
+      </div>
+
+      <form id="expense-form">
+        <div class="form-grid">
+          <label>
+            Expense name
+            <input id="name" type="text" maxlength="80"
+              placeholder="e.g. Grocery shopping" required>
+          </label>
+
+          <label>
+            Amount (₹)
+            <input id="amount" type="number" min="0.01"
+              max="1000000000" step="0.01"
+              placeholder="e.g. 450" required>
+          </label>
+
+          <label>
+            Category
+            <select id="category" required>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Bills">Bills</option>
+              <option value="Health">Health</option>
+              <option value="Education">Education</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label>
+            Date
+            <input id="date" type="date" required>
+          </label>
+        </div>
+        <button class="primary-btn" type="submit">+ Add Expense</button>
+        <p id="form-message" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Transactions</h2>
+          <p class="muted">Review and manage your expenses.</p>
+        </div>
+        <button id="export-btn" class="secondary-btn" type="button">
+          Export CSV
+        </button>
+      </div>
+
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search expenses..."
+          aria-label="Search expenses">
+        <select id="filter-category" aria-label="Filter by category">
+          <option value="All">All categories</option>
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Bills">Bills</option>
+          <option value="Health">Health</option>
+          <option value="Education">Education</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Expense</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="expense-list"></tbody>
+        </table>
+      </div>
+      <p id="empty-state" class="empty-state">
+        No expenses yet. Add your first expense above!
+      </p>
+    </section>
+
+    <footer>
+      Built with HTML, CSS and JavaScript · PennyWise
+    </footer>
+  </main>
+</body>
+</html>
